@@ -7,6 +7,7 @@ import {
   NewCountryInput,
 } from "@/graphql/generated/schema";
 import CountryCard from "@/components/CountryCard";
+import Loader from "@/components/Loader/Loader";
 
 const GET_COUNTRIES = gql`
   query Countries {
@@ -122,7 +123,7 @@ export default function Home() {
           <CountryCard key={id} flag={country.emoji} name={country.name} />
         ))
       ) : (
-        <p>Pas de pays à afficher</p>
+        <Loader />
       )}
     </div>
   );
