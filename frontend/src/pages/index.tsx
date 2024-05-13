@@ -158,9 +158,7 @@ export default function Home() {
               onChange={(event) => {
                 updateFormData({ emoji: event.target.value });
               }}
-              className={`w-full px-3 py-2 border ${
-                emojiError ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:outline-none focus:border-indigo-500`}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500"
             />
             {emojiError && <p className="text-red-500">{emojiError}</p>}
           </div>
