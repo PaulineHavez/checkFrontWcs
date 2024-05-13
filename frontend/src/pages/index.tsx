@@ -5,6 +5,7 @@ import {
   AddCountryMutation,
   AddCountryMutationVariables,
   NewCountryInput,
+  ObjectId,
 } from "@/graphql/generated/schema";
 import CountryCard from "@/components/CountryCard";
 import Loader from "@/components/Loader/Loader";
@@ -38,6 +39,7 @@ export default function Home() {
     name: "",
     emoji: "",
     code: "",
+    continent: null,
   });
   const [countries, setCountries] = useState<any>([]);
   useEffect(() => {
@@ -63,7 +65,6 @@ export default function Home() {
         data: formData,
       },
     });
-    console.log(data);
     setCountries([...countries, data?.addCountry]);
   };
 
@@ -113,8 +114,26 @@ export default function Home() {
               }}
             />
           </div>
+          <select
+            id="continent"
+            name="continent"
+            required
+            onChange={(event) => {
+              updateFormData({
+                continent: { id: parseInt(event.target.value) },
+              });
+            }}
+          >
+            <option value="">Sélectionnez un continent</option>
+            <option value="1">Europe</option>
+            <option value="2">Asie</option>
+            <option value="3">Océanie</option>
+            <option value="4">Afrique</option>
+            <option value="5">Amérique du Nord</option>
+            <option value="6">Amérique du Sud</option>
+          </select>
           <div className="form-group">
-            <button type="submit">Soumettre</button>
+            <button type="submit">Ajouter</button>
           </div>
         </form>
       </div>
