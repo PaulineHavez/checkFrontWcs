@@ -42,7 +42,7 @@ export default function Home() {
   useEffect(() => {
     if (data) {
       if (data && data.countries) {
-        setCountries(data.countries); // Stockez uniquement les pays dans countries
+        setCountries(data.countries);
       }
     }
   }, [data]);
@@ -64,7 +64,6 @@ export default function Home() {
     });
     console.log(data);
     setCountries([...countries, data?.addCountry]);
-    //   window.location.reload();
   };
 
   return (
@@ -114,40 +113,17 @@ export default function Home() {
             />
           </div>
           <div className="form-group">
-            <button
-              type="submit"
-              // onSubmit={(event) => {
-              //   event.preventDefault();
-              //   createCountry();
-              // }}
-            >
-              Soumettre
-            </button>
+            <button type="submit">Soumettre</button>
           </div>
         </form>
       </div>
       {countries.length > 0 ? (
         countries.map((country: any, id: number) => (
-          <CountryCard
-            key={id} // Utiliser un identifiant unique comme clé
-            flag={country.emoji}
-            name={country.name}
-          />
+          <CountryCard key={id} flag={country.emoji} name={country.name} />
         ))
       ) : (
         <p>Pas de pays à afficher</p>
       )}
-      {/* {data && data.countries && data?.countries.length > 0 ? (
-        data.countries.map((country: any, id: number) => (
-          <CountryCard
-            key={id} // Utiliser un identifiant unique comme clé
-            flag={country.emoji}
-            name={country.name}
-          />
-        ))
-      ) : (
-        <p>Pas de pays à afficher</p>
-      )} */}
     </div>
   );
 }
