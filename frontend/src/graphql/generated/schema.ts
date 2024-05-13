@@ -78,7 +78,7 @@ export type CountryQueryVariables = Exact<{
 }>;
 
 
-export type CountryQuery = { __typename?: 'Query', country: { __typename?: 'Country', id: number, name: string, emoji: string, continent?: { __typename?: 'Continent', name: string } | null } };
+export type CountryQuery = { __typename?: 'Query', country: { __typename?: 'Country', id: number, name: string, code: string, emoji: string, continent?: { __typename?: 'Continent', name: string } | null } };
 
 export type CountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -98,6 +98,7 @@ export const CountryDocument = gql`
   country(code: $code) {
     id
     name
+    code
     emoji
     continent {
       name
