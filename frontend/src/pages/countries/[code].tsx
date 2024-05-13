@@ -35,16 +35,29 @@ export default function country() {
   }
 
   if (error) {
-    return "Erreur lors du chargement de la page : il semblerait que le pays demandé ne soit pas renseigné sur notre site.";
+    return (
+      <div>
+        <p className="text-red-500 text-center">
+          Erreur lors du chargement de la page : il semblerait que le pays
+          demandé ne soit pas renseigné sur notre site.
+        </p>
+      </div>
+    );
   }
 
   return (
-    <div className="card">
-      <div className="flag">{data?.country.emoji}</div>
-      <div className="name">
-        {data?.country.name} ({data?.country.code})
+    <div className="flex justify-center items-center mt-10">
+      <div className="card">
+        <div className="flex flex-col items-center">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {data?.country.name} ({data?.country.code})
+          </h5>
+          <p>{data?.country.emoji}</p>
+          <p className=" text-gray-700 text-center">
+            {data?.country.continent?.name || "Continent non renseigné"}
+          </p>
+        </div>
       </div>
-      <div className="name">{data?.country.continent?.name}</div>
     </div>
   );
 }

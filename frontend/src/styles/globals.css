@@ -25,20 +25,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.flag {
-  width: 100px; /* Ajuster la taille selon le drapeau */
-  height: 60px; /* Ajuster la taille selon le drapeau */
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
-}
-
-.name {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .loader-container {
   display: flex;
   justify-content: center;
