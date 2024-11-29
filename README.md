@@ -1,3 +1,7 @@
+
+Ce projet est un test réalisé pendant ma formation Développeur JavaScript a Wild Code School. Ci-dessous se trouve l'énoncé du test.
+
+
 # Checkpoint frontend
 
 ## Instructions
